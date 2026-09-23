@@ -83,7 +83,7 @@ main{
     section {
         margin: 0;
         scroll-margin-top: $header-height;
-        padding: clamp(20px, 5vw, 40px);
+        padding: clamp(20px, 7.5vw, 60px) clamp(20px, 5vw, 40px);
         h1{
             margin: 0 0 50px;
             font-size: $h1-font-size;
