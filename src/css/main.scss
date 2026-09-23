@@ -14,7 +14,14 @@ $p-font-size: 1rem;
 html {
   scroll-behavior: smooth;
 }
-
+@mixin press{
+    &:hover, &:focus-visible, &:active{
+        background-color: $hover-blue;
+    }
+    &:active{
+        transform: scale(0.98);
+    }
+}
 body{
     font-family: Helvetica, sans-serif;
     margin: 0;
@@ -54,13 +61,7 @@ header{
             font-size: $p-font-size;
             color: $light-gray;
             transition: background-color 150ms ease, font-size 150ms ease;
-            &:hover, &:focus-visible{
-                background-color: $hover-blue;
-            }
-            &:active{
-                background-color: $hover-blue;
-                transform: scale(0.98);
-            }
+            @include press;
             &.active {
                 background-color: $hover-blue;
             }
@@ -176,6 +177,12 @@ main{
         max-height: 85svh;
         border-radius: $corner-round;
     }
+    @keyframes fade-in {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .modal[open] { animation: fade-in 200ms ease-out; }
+
     .modal::backdrop {
         background: rgb(0 0 0 / 0.5);
     }
@@ -207,13 +214,7 @@ main{
             border-radius: $corner-round;
             cursor: pointer;
             transition: background-color 150ms ease;
-            &:hover, &:focus-visible{
-                background-color: $hover-blue;
-            }
-            &:active{
-                background-color: $hover-blue;
-                transform: scale(0.98);
-            }
+            @include press;
         }
     }
 }
@@ -238,13 +239,7 @@ main{
             border-radius: 50%;
             cursor: pointer;
             transition: background-color 150ms ease;
-            &:hover, &:focus-visible{
-                background-color: $hover-blue;
-            }
-            &:active{
-                background-color: $hover-blue;
-                transform: scale(0.98);
-            }
+            @include press;
         }
     }
     #project-list{
@@ -329,7 +324,7 @@ footer{
     a{
         color: $light-gray;
         font-size: $h4-font-size;
-        transition: background-color 150ms ease;
+        transition: color 150ms ease;
         &:hover, &:focus-visible{
             color: $hover-blue;
         }
