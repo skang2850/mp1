@@ -1,1 +1,341 @@
-/* Your SCSS here. */
+$point-blue: #1f3341;
+$hover-blue: #4A90E2;
+$light-blue: #E8F1F8;
+$light-gray: #ffffff;
+$corner-round: 16px;
+$header-height: 60px;
+$h1-font-size: clamp(1.75rem, 1.2rem + 2.5vw, 2.25rem);
+$h2-font-size: clamp(1.5rem, 1.1rem + 2vw, 2rem);
+$h3-font-size: clamp(1.25rem, 1rem + 1.2vw, 1.5rem);
+$h4-font-size: clamp(1.125rem, 1rem + 0.6vw, 1.25rem); 
+$h5-font-size: clamp(1rem, 0.875rem + 0.6vw, 1.125rem);
+$p-font-size: 1rem;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header-scroll{
+    position: absolute;
+    margin: 30px;
+    height: 1px;
+}
+header{
+    background-color: $point-blue;
+    color: $light-gray;
+    height: $header-height;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:0;
+    position: fixed;
+    width: 100%;
+    transition: padding 150ms ease;
+    h4{
+        margin: 0;
+        font-size: $h4-font-size;
+        transition: font-size 150ms ease;
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        a{
+            display: block;
+            padding: 15px 20px;
+            border-radius: $corner-round;
+            text-decoration: none;
+            font-size: $p-font-size;
+            color: $light-gray;
+            transition: background-color 150ms ease, font-size 150ms ease;
+            &:hover, &:focus-visible{
+                background-color: $hover-blue;
+            }
+            &:active{
+                background-color: $hover-blue;
+                transform: scale(0.98);
+            }
+            &.active {
+                background-color: $hover-blue;
+            }
+        }
+    }
+    &.top{
+        padding: 20px;
+        h4{
+            font-size: $h3-font-size;
+        }
+        a{
+            font-size: $h5-font-size;
+        }
+    }
+}
+main{
+    padding-top: $header-height;
+    text-align: center;
+    section {
+        margin: 0;
+        scroll-margin-top: $header-height;
+        padding: clamp(20px, 5vw, 40px);
+        h1{
+            margin: 0 0 50px;
+            font-size: $h1-font-size;
+        }
+        h2{
+            margin: 0 0 40px;
+            font-size: $h2-font-size;
+        }
+        h3{
+            font-size: $h3-font-size;
+        }
+        h4{
+            font-size: $h4-font-size;
+        }
+        p{
+            font-size: $p-font-size;
+        }
+    }
+}
+#home{
+    min-height: 70svh;
+    background-color: $point-blue;
+    color: $light-gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+    h1{
+        margin: 0;
+    }
+    p{
+        margin: 0;
+    }
+}
+#education{
+    background-image: url("clouds.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    color: $light-gray;
+    .education-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 300px));
+        justify-content: center;
+        column-gap: clamp(30px, 15vw, 300px);
+        row-gap: 30px;
+        margin: 0;
+    }
+    .school{
+            padding: 20px 40px;
+            background-color: $light-gray;
+            color: $point-blue;
+            border-radius: $corner-round;
+            text-align: center;
+            border: none;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            img{
+                height: 55px;
+                display: block;
+                margin: 0 auto 20px;
+            }
+            span{
+                display: block;
+            }
+            .school-name{
+                font-weight: bold;
+                font-size: $h4-font-size;
+                margin-bottom: 10px;
+            }
+            .school-details{
+                font-size: $p-font-size;
+            }
+            .learn-more{
+                margin-top: auto;
+                padding-top: 10px;
+                color: $hover-blue;
+            }
+    }
+    .modal{
+        padding: 0;
+        border: none;
+        max-width: min(90vw, 45rem);
+        max-height: 85svh;
+        border-radius: $corner-round;
+    }
+    .modal::backdrop {
+        background: rgb(0 0 0 / 0.5);
+    }
+    .modal-content{
+        background-color: $light-gray;
+        padding: 40px 30px;
+        color: $point-blue;
+        overflow: auto;
+        img{
+            height: 125px;
+            margin: 0 auto 20px;
+        }
+        h2{
+            margin-bottom: 20px;
+        }
+        ul{
+            text-align: left;
+            li{
+                font-size: $p-font-size;
+                margin-bottom: 10px;
+            }
+        }
+        button{
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: $point-blue;
+            color: $light-gray;
+            border: none;
+            border-radius: $corner-round;
+            cursor: pointer;
+            transition: background-color 150ms ease;
+            &:hover, &:focus-visible{
+                background-color: $hover-blue;
+            }
+            &:active{
+                background-color: $hover-blue;
+                transform: scale(0.98);
+            }
+        }
+    }
+}
+#projects{
+    background-color: $light-gray;
+    color: $point-blue;
+    #project-carousel{
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: clamp(0.5rem, 2vw, 1rem);
+        width: min(550px, 100%);
+        .carousel-btn{
+            flex: 0 0 auto;
+            font-size: 2em;
+            width: clamp(2.25rem, 8vw, 2.75rem);
+            height: clamp(2.25rem, 8vw, 2.75rem);
+            border: none;
+            background-color: $point-blue;
+            color: $light-gray;
+            padding: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 150ms ease;
+            &:hover, &:focus-visible{
+                background-color: $hover-blue;
+            }
+            &:active{
+                background-color: $hover-blue;
+                transform: scale(0.98);
+            }
+        }
+    }
+    #project-list{
+        flex: 1 1 auto;
+        min-width: 0;
+        width: 100%;
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+        gap: clamp(0.5rem, 2vw, 1rem);
+        border-radius: $corner-round;
+        .project-list-items{
+            background-color: $light-blue;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            color: $point-blue;
+            margin: 0;
+            border-radius: $corner-round;
+            width: 100%;
+            padding: 0 0 25px;
+            flex: 1 0 100%;
+            box-sizing: border-box;
+            scroll-snap-align: start;
+            .project-details{
+                padding-inline: clamp(1.5rem, 10%, 3rem);
+                margin-inline: auto;
+                text-align: left;
+                list-style-type: disc;
+                li{
+                    margin-bottom: 7px;
+                }
+            }
+        }
+    }
+    
+}
+#skills{
+    background-color: $point-blue;
+    color: $light-gray;
+    .skills-container{
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: min(100%, 500px);
+        margin-inline: auto;
+        column-gap: 2px;
+        row-gap: 10px;
+        background-color: $light-gray;
+        .skill{
+            background-color: $point-blue;
+            color: $light-gray;
+            padding: 10px 5px;
+        }
+    }
+}
+#other{
+    h2{
+        margin: 0 0 20px;
+    }
+    p{
+        margin: 0;
+        padding: 0;
+    }
+    video {
+        display: block;
+        margin: 30px auto 0px;
+        padding: 0;
+        width: min(100%, 550px);
+        height: auto;
+        border-radius: $corner-round;
+    }
+}
+
+footer{
+    background-color: $point-blue;
+    color: $light-gray;
+    text-align: center;
+    padding: 10px;
+    a{
+        color: $light-gray;
+        font-size: $h4-font-size;
+        transition: background-color 150ms ease;
+        &:hover, &:focus-visible{
+            color: $hover-blue;
+        }
+        &:active{
+             color: $hover-blue;
+             transform: scale(0.98);
+        }
+    }
+}

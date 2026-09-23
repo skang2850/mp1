@@ -5,9 +5,133 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MP1</title>
+        <script src="https://kit.fontawesome.com/6b0f0b3353.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
+        <header>
+            <h4>Sky Kang</h4>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#other">Other</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="header-scroll"></div>
+        <main>
+            <section id="home">
+                <img src="assets/sky.JPG" alt="Sky Kang" />
+                <h1>Sky Kang</h1>
+                <p>Hi, I'm Sky</p>
+            </section>
+            <section id="education">
+                <h2>Education</h2>
+                <div class="education-container">
+                    <button class="school" data-modal="mit-modal">
+                        <img src="assets/mit_logo.svg" alt="MIT Logo" />
+                        <span class="school-name">MIT Class of 2024</span>
+                        <span class="school-details">B.S. in Bioengineering, Minor in Computer Science</span>
+                        <span class="learn-more">Click to learn more →</span>
+                    </button>
+                    <button class="school" data-modal="uiuc-modal">
+                        <img src="assets/uiuc_logo.jpg" alt="UIUC Logo" />
+                        <span class="school-name">UIUC Master's in Computer Science</span>
+                        <span class="school-details">Expected Graduation: December 2027</span>
+                        <span class="learn-more">Click to learn more →</span>
+                    </button>
+                </div>
+                <dialog id="mit-modal" class="modal">
+                    <div class="modal-content">
+                        <img src="assets/mit_logo.svg" alt="MIT Logo" />
+                        <h2>MIT Class of 2024</h2>
+                        <ul>
+                            <li>B.S. in Bioengineering, Minor in Computer Science</li>
+                            <li>GPA: 5.0/5.0</li>
+                            <li>Relevant Coursework:  Fundamentals of Programming, Introduction to Machine Learning, Artificial Intelligence, Introduction to Algorithms, Computation Structures</li>
+                        </ul>
+                        <button class="close-button">Close</button>
+                    </div>
+                </dialog>
+                <dialog id="uiuc-modal" class="modal">
+                    <div class="modal-content">
+                        <img src="assets/uiuc_logo.jpg" alt="UIUC Logo" />
+                        <h2>UIUC Master's in Computer Science</h2>
+                        <ul>
+                            <li>Expected Graduation: December 2027</li>
+                            <li>GPA: 4.0/4.0</li>
+                            <li>Relevant Coursework:  Advanced Database Systems, Distributed Systems, Web Programming</li>
+                        </ul>
+                        <button class="close-button">Close</button>
+                    </div>
+                </dialog>
+            </section>
+            <section id="projects">
+                <h2>Projects</h2>
+                <div id="project-carousel">
+                    <button class="carousel-btn" id="carousel-btn-prev">❮</button>
+                    <ul id="project-list"> 
+                        <li class="project-list-items">
+                            <h4>SkinMatch</h4>
+                            <ul class="project-details">
+                                <li>Built a full-stack web application that recommends skincare products based on user’s skincare goals</li>
+                                <li>Designed a relational MySQL database containing over 300,000 user reviews and 2,000 skincare products</li>
+                                <li>Developed a React frontend UI and integrated to backend via a REST API built in Flask</li>
+                            </ul>
+                        </li>
+                        <li class="project-list-items">
+                            <h4>Distributed Transaction System</h4>
+                            <ul class="project-details">
+                                <li>Created a distributed transaction system in Go over a 5-server cluster</li>
+                                <li>Implemented two-phase commit with timestamp ordering for serializable transactions</li>
+                                <li>Designed lock-free scheme that aborts and rolls back conflicting transactions, eliminating deadlocks</li>
+                                <li>Built coordinator/participant RPC protocol with mutex-guarded state across goroutines</li>
+                            </ul>
+                        </li>
+                        <li class="project-list-items">
+                            <h4>Agentic AI for Data Analysis</h4>
+                            <ul class="project-details">
+                                <li>Engineered a Python benchmarking system to profile per-command I/O costs, data-transfer volume, and latency for AI agents performing data analysis tasks</li>
+                                <li>Analyzed thousands of agent trajectories to identify trends in data-access choices, I/O costs, and accuracy across different storage backends, AI models, and task styles</li>
+                                <li>Deployed a 4-node distributed cluster simulating a cloud environment, with an S3 API-compatible MinIO object store and Ray compute cluster via Docker Compose</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <button class="carousel-btn" id="carousel-btn-next">❯</button>
+                </div>
+            </section>
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <div class="skill">
+                        <h4>Languages</h4>
+                        <p>Python, SQL, Go, JavaScript, Java, Matlab</p>
+                    </div>
+                    <div class="skill">
+                        <h4>Frameworks</h4>
+                        <p>React, Flask</p>
+                    </div>
+                    <div class="skill">
+                        <h4>Tools</h4>
+                        <p>Git, Github, Docker, AWS, Microsoft Office</p>
+                    </div>
+                </div>
+            </section>
+             <section id="other">
+                <h2>Other</h2>
+                <p>Fun fact: I like aquariums! Here's a video I took of jellyfish at the New England Aquarium</p>
+                <video controls>
+                    <source src="assets/jellyfish.mp4" type="video/mp4">
+                </video>
+            </section>
+        </main>
+        <footer>
+            <p>Contact</p>
+            <a href="https://www.linkedin.com/in/skang2850/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/skang2850" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+            <a href="mailto:skang2850@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        </footer>
     </body>
 </html>
